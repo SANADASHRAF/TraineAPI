@@ -11,8 +11,8 @@ namespace Entites
     {
         public int Id { get; set; }
         public string? TrainNumber { get; set; }
-        public int NumOfSeat { get; set; }
-        public DateTime TakeOffDate { get; set; }
+        public int? NumOfSeat { get; set; } = 0;
+        public DateTime TakeOffDate { get; set; } = DateTime.Now;
         public string? TakeOffStation { get; set; }
         public string? ArrivalStation { get; set; }
         public double Price { get; set; }
@@ -22,12 +22,12 @@ namespace Entites
 
 
         [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public virtual User? User { get; set; }
 
 
         [ForeignKey(nameof(payment))]
-        public int PaymentId { get; set; }
+        public int? PaymentId { get; set; }
         public virtual Payment? payment { get; set; }
 
 

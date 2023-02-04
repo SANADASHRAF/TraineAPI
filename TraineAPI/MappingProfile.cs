@@ -31,7 +31,7 @@ namespace TraineAPI
             CreateMap<Payment, PaymentDto>();
 
             CreateMap<PaymentDto, Payment>();
-
+            
             CreateMap<PaymentCreationDto, Payment>();
 
             CreateMap<PaymentUpdateDto, Payment>();
@@ -56,6 +56,13 @@ namespace TraineAPI
             CreateMap<Station, StatioForOneTrainDto>();
             CreateMap<StationForCreateDto, Station>();
             CreateMap<StationForUpdateDto, Station>();
+
+            //ticket
+            CreateMap<Ticket, TicketDto>();
+            CreateMap<Ticket, CheckIfScannOrNotDto>();
+            CreateMap<CreateTicketDto, Ticket>();
+            CreateMap<UpdateTicketDto, Ticket>();
+           
 
         }
     }
