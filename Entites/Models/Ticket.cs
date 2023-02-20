@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entites.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -29,6 +30,13 @@ namespace Entites
         [ForeignKey(nameof(payment))]
         public int? PaymentId { get; set; }
         public virtual Payment? payment { get; set; }
+
+
+
+        [ForeignKey(nameof(Location))]
+        public int? LocationId { get; set; }
+        public virtual Location? Location { get; set; }
+
 
 
     }

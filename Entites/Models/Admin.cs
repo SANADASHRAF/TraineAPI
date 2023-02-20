@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entites.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Entites
         public ICollection<Comment>? comments { get; set; }
         public ICollection<Post>? posts { get; set; }
 
-
+        public ICollection<News>? News { get; set; }
 
     }
 }

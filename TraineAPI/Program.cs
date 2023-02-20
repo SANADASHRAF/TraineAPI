@@ -1,4 +1,5 @@
 
+using Microsoft.OpenApi.Models;
 using TraineAPI.Extentation;
 
 
@@ -8,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigreRepositoryManegar();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
-
 
 // Add services to the container.
 //register presentation layer to know place of controller 
@@ -25,9 +25,10 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    //swagger
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+    }
 
 app.UseHttpsRedirection();
 

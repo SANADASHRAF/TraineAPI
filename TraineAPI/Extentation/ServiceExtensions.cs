@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Microsoft.OpenApi.Models;
 using Repository;
 
 namespace TraineAPI.Extentation
@@ -18,5 +19,10 @@ namespace TraineAPI.Extentation
         {
             services.AddSqlServer<RepositoryContext>((configuration.GetConnectionString("sqlConnection")));
         }
+
+
+        
+        
+
     }
 }

@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 namespace TraineAPI.Presentation.Controllers
 {
     [Route("api/user/[action]")]
-
     [ApiController]
     public class UserController : ControllerBase
     {

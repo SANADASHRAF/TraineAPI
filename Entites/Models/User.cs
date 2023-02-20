@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entites.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Entites
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
-        public string? Password { get; set; }
+        public string? Password { get; set; } 
         public string? Jop { get; set; }
         public string? Address { get; set; }
         public string? Gender { get; set; }
@@ -33,7 +34,11 @@ namespace Entites
         public virtual Train? Train { get; set; }
 
 
-       
-      
+        [ForeignKey(nameof(Location))]
+        public int? LocationId { get; set; }
+        public virtual Location? Location { get; set; }
+
+
+
     }
 }
