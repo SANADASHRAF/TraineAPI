@@ -20,8 +20,9 @@ namespace Repository
         private readonly Lazy<ITeketRepository> _TeketRepository;
         private readonly Lazy<ITrainRepository> _TrainRepository;
         private readonly Lazy<IUserRepository> _UserRepository;
-
-      public  RepositoryManegar(RepositoryContext repositoryContext)
+        private readonly Lazy<ILocationRepository> _LocationRepository;
+        private readonly Lazy<InewsRepository> _newsRepository;
+        public  RepositoryManegar(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
             _AdminRepository = new Lazy<IAdminRepository>(() => new AdminRepository(repositoryContext));
@@ -33,6 +34,8 @@ namespace Repository
             _TeketRepository = new Lazy<ITeketRepository>(() => new TeketRepository(repositoryContext));
             _TrainRepository = new Lazy<ITrainRepository>(() => new TrainRepository(repositoryContext));
             _UserRepository = new Lazy<IUserRepository>(() => new UserRepository(repositoryContext));
+            _LocationRepository = new Lazy<ILocationRepository>(() => new LocationRepository(repositoryContext));
+            _newsRepository=new Lazy<InewsRepository>(() => new newsRepository(repositoryContext));
         }
 
 
@@ -52,9 +55,9 @@ namespace Repository
         public ITrainRepository Train => _TrainRepository.Value;
 
         public IUserRepository User => _UserRepository.Value;
-
-        
-
+         
+        public ILocationRepository Location => _LocationRepository.Value;
+        public InewsRepository news => _newsRepository.Value;
         public void Save()
         {
             _repositoryContext.SaveChanges();

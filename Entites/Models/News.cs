@@ -11,12 +11,12 @@ namespace Entites.Models
     {
         public int Id { get; set; }
         public string? Img { get; set; }
-        public DateTime date { get; set; }
+        public DateTime? date { get; set; }=DateTime.Now;
         public string? ContentOfPost { get; set; }
 
 
         [ForeignKey(nameof(Admin))]
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; } 
         public virtual Admin? Admin { get; set; }
 
 

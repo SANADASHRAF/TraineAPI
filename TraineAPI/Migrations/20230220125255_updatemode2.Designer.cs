@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
@@ -11,9 +12,11 @@ using Repository;
 namespace TraineAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230220125255_updatemode2")]
+    partial class updatemode2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,7 +103,7 @@ namespace TraineAPI.Migrations
                     b.Property<double?>("Distance")
                         .HasColumnType("float");
 
-                    b.Property<int?>("TicketNumber")
+                    b.Property<int?>("TicketId")
                         .HasColumnType("int");
 
                     b.Property<int?>("TrainNumber")
@@ -126,7 +129,7 @@ namespace TraineAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AdminId")
+                    b.Property<int>("AdminId")
                         .HasColumnType("int");
 
                     b.Property<string>("ContentOfPost")
@@ -135,7 +138,7 @@ namespace TraineAPI.Migrations
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("date")
+                    b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -434,7 +437,9 @@ namespace TraineAPI.Migrations
                 {
                     b.HasOne("Entites.Admin", "Admin")
                         .WithMany("News")
-                        .HasForeignKey("AdminId");
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Admin");
                 });

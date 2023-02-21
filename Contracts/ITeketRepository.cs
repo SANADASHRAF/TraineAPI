@@ -12,6 +12,7 @@ namespace Contracts
         Ticket? GetUTicketById(int Id);
         void CreateTicket(Ticket ticket);
         void UpdateTicket(Ticket ticket);
+        Ticket? CheckTecketExiesting(int TicketId);
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entites;
+using Entites.Models;
 using Shared.DTOs;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -71,7 +72,18 @@ namespace TraineAPI
             CreateMap<Ticket, CheckIfScannOrNotDto>();
             CreateMap<CreateTicketDto, Ticket>();
             CreateMap<UpdateTicketDto, Ticket>();
-           
+
+
+            //location
+            CreateMap<Location, locationDto>();
+            CreateMap<ShareLocationDto, Location>();
+            CreateMap<UpdateLocationDto, Location>();
+
+            //news 
+            CreateMap< News ,NewsDto>();
+            CreateMap<NewsCreateDto ,News>();
+            CreateMap<NewsUpdateDto ,News>();
+
 
         }
     }

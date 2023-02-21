@@ -28,5 +28,10 @@ namespace Repository
         {
             Update(ticket);
         }
+
+        public Ticket? CheckTecketExiesting(int TicketId)
+        {
+            return FindByCondition(x => x.Id.Equals(TicketId)).SingleOrDefault();
+        }
     }
 }
